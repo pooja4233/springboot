@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Products</title>
+	</head>
+	<body>
+		<h1>Product Details Form</h1>
+		<form th:action="@{/saveproduct}"method="post">
+			<label for="name">Product Name:</label><br>
+			<input type="text" id="name" name="name" required><br><br>
+			
+			<label for="brand">Brand:</label><br>
+			<input type="text" id="brand" name="brand" required><br><br>
+			
+			<label for="madein">Made In:</label><br>
+			<input type="text" id="madein" name="madein" required><br><br>
+			
+			<label for="price">Price:</label><br>
+			<input type="number" id="price" name="price" step="0.01" required><br><br>
+			
+			<label for="quantity">Quantity:</label><br>
+			<input type="number" id="quantity" name="quantity" min="1" required><br><br>
+			
+			<input type="submit" value="Submit">
+			<input type="reset" value="Reset">
+		</form>
+	</body>
+</html>

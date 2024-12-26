@@ -1,0 +1,5 @@
+package com.sathya.springboot.product.service;
+
+public class Listservice {
+
+}

@@ -1,0 +1,18 @@
+package com.sathya.springboot.product.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+public class Listcontroller {
+	@Autowired
+	productservice productservice;
+	@GetMapping("/getall products")
+	public String getallproducts(Model model)
+	{
+		List<productEntity>products=productservice.getallproducts();
+		model.addAllAttributes("products",products);
+		return"productlist";
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.tcs.springmvc.model;
+
+import lombok.Data;
+
+@Data
+
+
+public class Productmodel {
+	 String name;
+	 String brand;
+	 String madein;
+	 double price;
+	 int quantity;
+
+
+}

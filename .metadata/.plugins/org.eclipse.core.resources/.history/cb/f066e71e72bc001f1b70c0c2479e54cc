@@ -1,0 +1,13 @@
+package com.tcs.springmvc.model;
+@data
+@setter
+
+public class Productmodel {
+	private String name;private String name;
+	private String brand;
+	private String madein;
+	private double price;
+	private int quantity;
+
+
+}

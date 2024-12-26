@@ -1,0 +1,73 @@
+package com.sathya.springboot.product.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sathya.springboot.product.entity.Productentity;
+import com.sathya.springboot.product.model.Product;
+import com.sathya.springboot.product.repository.productrepository;
+
+@Service
+
+public class Productservicee {
+	@Autowired
+	productrepository productrepository;
+	public void saveproductdetails (Product productmodel) {
+		double stockValue = productmodel.getPrice() * productmodel.getQuantity();
+        double discountPrice = productmodel.getPrice() * productmodel.getDiscountrate() / 100;
+        double taxPrice = productmodel.getPrice();
+        double offerPrice = productmodel.getPrice() - discountPrice;
+        double finalPrice = offerPrice + taxPrice;
+
+        Productentity productEntity = new Productentity();
+
+        productEntity.setName(productmodel.getName());
+        productEntity.setPrice(productmodel.getPrice());
+        productEntity.setQuantity(productmodel.getQuantity());
+        productEntity.setStockvalue(stockValue);
+        productEntity.setDiscountprice(discountPrice);
+        productEntity.setTaxrate(taxPrice);
+        productEntity.setOfferprice(offerPrice);
+        productEntity.setFinalprice(finalPrice);
+        productEntity.setBrand(productmodel.getBrand());
+        productEntity.setMadein(productmodel.getMadein());
+        productEntity.setDiscountrate(productmodel.getDiscountrate());
+        
+
+        productrepository.save(productEntity);
+        
+        }
+        
+        
+	
+    
+
+	public  List<Productentity> getallproducts() {
+      List<Productentity>products=productrepository.findAll();
+		return products;
+	}
+
+
+
+
+
+	public Productentity SearchBy(long id) {
+		// TODO Auto-generated method stub
+		Optional<Productentity>optionalDataptional =productrepository.findById(id);
+		if (optionalDataptional.isPresent()) {
+			Productentity product=optionalDataptional.get();
+			return product;
+			
+		}
+		else {
+			return null;
+		}
+		
+		
+	
+	
+   }
+}

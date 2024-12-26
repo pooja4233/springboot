@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>get all products</title>
+</head>
+<body>
+    <div>
+      <h2>Product List</h2>
+      <table border="1">
+            <caption>Product Information</caption>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Made In</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Discount Rate</th>
+                    <th>Discount Price</th>
+                    <th>Offer Price</th>
+                    <th>Final Price</th>
+                    <th>Stock Value</th>
+                    <th>Tax Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="products : ${Products}">
+                    <td th:text="${products.ID}"></td>
+                    <td th:text="${products.NAME}"></td>
+                    <td th:text="${products.BRAND}"></td>
+                    <td th:text="${products.MADEIN}"></td>
+                    <td th:text="${products.PRICE}"></td>
+                    <td th:text="${products.QUANTITY}"></td>
+                    <td th:text="${products.DISCOUNTRATE}"></td>
+                    <td th:text="${products.TAXRATE}"></td>
+                    <td th:text="${products.DISCOUNTPRICE}"></td>
+                    <td th:text="${products.OFFERPRICE}"></td>
+                    <td th:text="${products.FINALPRICE}"></td>
+                    <td th:text="${products.STOCKVALUE}"></td>
+                    <td>
+                        <a th:href="@{'/delete/'+ ${products.id}}" class="delete-link">Delete</a>
+                        <a th:href="@{'/edit/'+ ${products.id}}" class="edit-link">Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

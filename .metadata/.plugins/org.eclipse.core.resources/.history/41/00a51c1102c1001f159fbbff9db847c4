@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>productlist</title>
+	</head>
+	<body>
+		<div>
+			<h2>productlist</h2>
+			<table border="2">
+				<thead>
+					<tr>
+					<th>ID</th>
+					<th>NAME</th>
+					<th>BRAND</th>
+					<th>MADEIN</th>
+					<th>PRICE</th>
+					<th>QUANTITY</th>
+					<th>DISCOUNTRATE</th>
+					<th>TAXRATE</th>
+					<th>OFFERPRICE</th>
+				    <th>FINALPRICE</th>
+					<th>DISCOUNTPRICE</th>
+					<th>STOCKVALUE</th>
+					<th>ACTIONS</th>
+					</tr>
+					
+				</thead>
+				<tbody>
+					<tr th:each="p:${products}">
+						<td th:text="${p.ID}"></td>
+						<td th:text="${p.NAME}"></td>
+						<td th:text="${p.BRAND}"></td>
+						<td th:text="${p.MADEIN}"></td>
+						<td th:text="${p.PRICE}"></td>
+						<td th:text="${p.QUANTITY}"></td>
+						<td th:text="${p.DISCOUNTRATE}"></td>
+						<td th:text="${p.TAXRATE}"></td>
+						<td th:text="${p.OFFERPRICE}"></td>
+						<td th:text="${p.FINALPRICE}"></td>
+						<td th:text="${p.DISCOUNTPRICE}"></td>
+						<td th:text="${p.STOCKVALUE}"></td>
+						<td>
+							<a th:href="@{'/delete/'+${p.id}}" >Delete</a>
+							<a th:href="@{'/edit/'+${p.id}}" >Edit</a>
+						</td>
+					</tr>
+				</tbody>
+				
+			</table>
+		</div>
+	</body>
+</html>

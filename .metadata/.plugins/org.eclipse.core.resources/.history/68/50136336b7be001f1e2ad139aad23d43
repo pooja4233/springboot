@@ -1,0 +1,17 @@
+package com.sathya.springboot.product.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class Listservice {
+	@Autowired
+	productRepository productrepository;
+	productlist<productEntity>getallproducts()
+	{
+		List<productEntity>products=productrepository.findall();
+		return products;
+		
+		
+	}
+	
+
+}
